@@ -1,0 +1,27 @@
+FROM nwodtuhs/exegol:nightly
+
+# Installer dépendances
+RUN apt-get update && \
+    apt-get install -y \
+    git curl autoconf build-essential libpcap-dev \
+    libsqlite3-dev libpq-dev postgresql \
+    libreadline-dev libssl-dev zlib1g-dev libyaml-dev \
+    ruby-full ruby-dev \
+    libgmp-dev libffi-dev nodejs
+
+# Cloner Metasploit Framework
+RUN git clone https://github.com/rapid7/metasploit-framework /opt/metasploit-framework
+
+# Installer les dépendances Ruby
+WORKDIR /opt/metasploit-framework
+RUN gem install bundler && \
+    bundle config set without 'development test' && \
+    bundle install
+COPY ./entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
+# Ajouter au PATH
+ENV PATH="/opt/metasploit-framework:$PATH"
+
+# Lancer msfconsole par défaut
+ENTRYPOINT [ "/entrypoint.sh" ]
