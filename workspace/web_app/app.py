@@ -10,14 +10,14 @@ scan_lock = threading.Lock()
 
 # Dictionnaire des modules et leurs scripts associés
 module_scripts = {
-    "ToolBox": "../ToolBox.py",
-    "scanner": "../scanner.py",
-    "vuln_finder": "../vuln_finder.py",
-    "eternalblue": "../every_exploits/eternalblue.py",
-    "ms08_067": "../every_exploits/MS08-067.py",
-    "shellshock": "../every_exploits/Shellshock.py",
-    "heartbleed": "../every_exploits/Heartbleed.py",
-    "drupalgeddon": "../every_exploits/Drupalgeddon.py"
+    "ToolBox": "/toolbox/workspace/ToolBox.py",
+    "scanner": "/toolbox/workspace/scanner.py",
+    "vuln_finder": "/toolbox/workspace/vuln_finder.py",
+    "eternalblue": "/toolbox/workspace/every_exploits/eternalblue.py",
+    "ms08_067": "/toolbox/workspace/every_exploits/MS08-067.py",
+    "shellshock": "/toolbox/workspace/every_exploits/Shellshock.py",
+    "heartbleed": "/toolbox/workspace/every_exploits/Heartbleed.py",
+    "drupalgeddon": "/toolbox/workspace/every_exploits/Drupalgeddon.py"
 }
 
 @app.route("/", methods=["GET"])

@@ -1,0 +1,12 @@
+services:
+  toolbox:
+    build: .
+    container_name: toolbox
+    ports:
+      - "5000:5000"
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
