@@ -20,6 +20,8 @@ RUN gem install bundler && \
 COPY ./entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
+RUN git clone 
+
 # Ajouter au PATH
 ENV PATH="/opt/metasploit-framework:$PATH"
 
