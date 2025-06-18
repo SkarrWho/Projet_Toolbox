@@ -9,18 +9,22 @@ RUN apt-get update && \
     ruby-full ruby-dev \
     libgmp-dev libffi-dev nodejs
 
+EXPOSE 5000
+
 # Cloner Metasploit Framework
 RUN git clone https://github.com/rapid7/metasploit-framework /opt/metasploit-framework
 
 # Installer les dépendances Ruby
-WORKDIR /opt/metasploit-framework
+
 RUN gem install bundler && \
     bundle config set without 'development test' && \
     bundle install
-COPY ./entrypoint.sh /
+COPY ./environement/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
-RUN git clone 
+RUN mkdir /toolbox
+RUN git clone https://github.com/SkarrWho/Projet_Toolbox.git /toolbox
+WORKDIR /Toolbox
 
 # Ajouter au PATH
 ENV PATH="/opt/metasploit-framework:$PATH"
