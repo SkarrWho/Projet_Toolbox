@@ -20,6 +20,8 @@ echo "[*] Installation des dépendances Ruby..."
 bundle install --gemfile /opt/metasploit-framework/Gemfile
 
 echo "[*] Démarrage de la ToolBox"
+rm -r /toolbox
+git clone https://github.com/SkarrWho/Projet_Toolbox /toolbox
 ls /toolbox
 cd /toolbox/workspace/web_app
 python3 app.py
