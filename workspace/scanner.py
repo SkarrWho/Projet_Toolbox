@@ -5,7 +5,7 @@ import pandas as pd
 import sys
 
 def scan_network(target):
-    results_dir = "csv_results"
+    results_dir = "/toolbox/workspace/csv_results"
     os.makedirs(results_dir, exist_ok=True)
 
     xml_path = os.path.join(results_dir, "nmap_scan.xml")
