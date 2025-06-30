@@ -23,6 +23,6 @@ echo "[*] Démarrage de la ToolBox"
 rm -r /toolbox
 git clone https://github.com/SkarrWho/Projet_Toolbox /toolbox
 ls /toolbox
-cd /toolbox/workspace/web_app
-python3 app.py
+cd /toolbox
+python3 workspace/web_app/app.py
 
