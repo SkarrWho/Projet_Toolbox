@@ -21,11 +21,11 @@ def main():
 
     # Step 2: Run vuln_finder.py
     print("\n[2] Finding vulnerabilities...")
-    run_script("/toolbox/workspacevuln_finder.py")
+    run_script("/toolbox/workspace/vuln_finder.py")
 
     # Step 3: Start listener in background
     print("\n[3] Starting shell listener...")
-    handler_rc_path = os.path.abspath(os.path.join("every_exploits", "handler.rc"))
+    handler_rc_path = os.path.abspath(os.path.join("/toolbox/workspace/every_exploits", "handler.rc"))
     listener_command = [
         "bash", "-c",
         "BUNDLE_GEMFILE=/opt/tools/metasploit-framework/Gemfile "
