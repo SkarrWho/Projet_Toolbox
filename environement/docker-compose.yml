@@ -4,6 +4,7 @@ services:
     container_name: toolbox
     ports:
       - "5000:5000"
+      - "4444:4444"
     networks:
       - network
 
