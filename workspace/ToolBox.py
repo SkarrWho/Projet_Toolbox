@@ -30,7 +30,7 @@ def main():
         "bash", "-c",
         "BUNDLE_GEMFILE=/opt/tools/metasploit-framework/Gemfile "
         "/usr/local/rvm/gems/ruby-3.1.5@metasploit-framework/wrappers/bundle exec "
-        f"/opt/tools/metasploit-framework/msfconsole -r {handler_rc_path}"
+        f"/opt/tools/metasploit-framework/msfconsole -r /toolbox/workspace/every_exploits/handler.rc"
     ]
     subprocess.Popen(listener_command)
 
