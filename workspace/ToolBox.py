@@ -25,7 +25,7 @@ def main():
 
     # Step 3: Start listener in background
     print("\n[3] Starting shell listener...")
-    handler_rc_path = os.path.abspath(os.path.join("/toolbox/workspace/every_exploits", "handler.rc"))
+    handler_rc_path = os.path.join("/toolbox/workspace/every_exploits", "handler.rc")
     listener_command = [
         "bash", "-c",
         "BUNDLE_GEMFILE=/opt/tools/metasploit-framework/Gemfile "
