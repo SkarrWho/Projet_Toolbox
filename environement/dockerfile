@@ -19,7 +19,7 @@ WORKDIR /opt/metasploit-framework
 RUN gem install bundler && \
     bundle config set without 'development test' && \
     bundle install
-COPY ./entrypoint.sh /
+COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 RUN mkdir /toolbox
