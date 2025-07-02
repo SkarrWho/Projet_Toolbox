@@ -33,7 +33,7 @@ def scan_network(target):
         os_name = "Unknown"
         os_elem = host.find("os")
         if os_elem is not None:
-            os_match = os_elem.find("osmatch")
+            os_match = os_elem.find("ostype")
             if os_match is not None and os_match.get("name"):
                 os_name = os_match.get("name")
         if os_name == "Unknown":

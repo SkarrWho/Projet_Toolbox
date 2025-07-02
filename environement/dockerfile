@@ -27,5 +27,6 @@ RUN pip install --break-system-packages -r requirements.txt
 
 # Ajouter au PATH
 ENV PATH="/opt/metasploit-framework:$PATH"
+ENV PATH="/opt/tools/bin/:$PATH"
 
 ENTRYPOINT [ "/entrypoint.sh" ]
