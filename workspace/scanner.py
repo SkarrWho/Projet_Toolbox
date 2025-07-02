@@ -29,11 +29,11 @@ def scan_network(target):
         ip_elem = host.find("address")
         ip = ip_elem.get("addr") if ip_elem is not None else None
 
-        # 🧠 OS detection améliorée
+        # OS detection
         os_name = "Unknown"
         os_elem = host.find("os")
         if os_elem is not None:
-            os_match = os_elem.find("ostype")
+            os_match = os_elem.find("osmatch")
             if os_match is not None and os_match.get("name"):
                 os_name = os_match.get("name")
         if os_name == "Unknown":
@@ -46,8 +46,16 @@ def scan_network(target):
         for port in host.findall(".//port"):
             port_id = port.get("portid")
             state = port.find("state").get("state")
-            service = port.find("service").get("name") if port.find("service") is not None else "Unknown"
-            version = port.find("service").get("version") if port.find("service") is not None else "Unknown"
+
+            service_elem = port.find("service")
+            if service_elem is not None:
+                service = service_elem.get("name", "Unknown")
+                version = service_elem.get("version", "Unknown")
+                ostype = service_elem.get("ostype", None)
+                if ostype and ostype.lower() not in os_name.lower():
+                    os_name = f"{ostype}"
+            else:
+                service = version = "Unknown"
 
             if state == "open":
                 hosts.append({
@@ -70,4 +78,3 @@ if __name__ == "__main__":
 
     target_input = sys.argv[1]
     scan_network(target_input)
-#[Jun 16, 2025 - 14:31:19 (EDT)] exeg
