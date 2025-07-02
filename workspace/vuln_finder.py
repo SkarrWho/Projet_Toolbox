@@ -17,8 +17,13 @@ def find_exploits(input_file="/toolbox/workspace/csv_results/scan_results.csv", 
         port = int(row['port'])
         os_name = str(row['os'])
         ip = row['ip']
-
-        query = f"{service} {version}".strip()
+     
+        if pd.isna(version):
+            query = service.strip()
+            version = ""
+        else:
+            query = f"{service} {str(version)}".strip()
+        #query = f"{service} {version}".strip()
         exploit_text = ""
 
         if query:
