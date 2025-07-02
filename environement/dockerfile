@@ -16,9 +16,7 @@ RUN git clone https://github.com/rapid7/metasploit-framework /opt/metasploit-fra
 
 # Installer les dépendances Ruby
 WORKDIR /opt/metasploit-framework
-RUN gem install bundler && \
-    bundle config set without 'development test' && \
-    bundle install
+RUN gem install bundler 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
@@ -29,5 +27,6 @@ RUN pip install --break-system-packages -r requirements.txt
 
 # Ajouter au PATH
 ENV PATH="/opt/metasploit-framework:$PATH"
+ENV PATH="/opt/tools/bin/:$PATH"
 
 ENTRYPOINT [ "/entrypoint.sh" ]

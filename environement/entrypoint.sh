@@ -22,6 +22,7 @@ bundle install --gemfile /opt/metasploit-framework/Gemfile
 echo "[*] Démarrage de la ToolBox"
 rm -r /toolbox
 git clone https://github.com/SkarrWho/Projet_Toolbox /toolbox
-cd /toolbox
-python3 workspace/web_app/app.py
+cd /
+
+python3 /toolbox/workspace/web_app/app.py
 

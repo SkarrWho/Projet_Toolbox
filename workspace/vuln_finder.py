@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import subprocess
 
-def find_exploits(input_file="csv_results/scan_results.csv", output_file="csv_results/vuln_results.csv"):
+def find_exploits(input_file="/toolbox/workspace/csv_results/scan_results.csv", output_file="/toolbox/workspace/csv_results/vuln_results.csv"):
     if not os.path.exists(input_file):
         print(f"[!] File not found: {input_file}")
         return
@@ -17,8 +17,13 @@ def find_exploits(input_file="csv_results/scan_results.csv", output_file="csv_re
         port = int(row['port'])
         os_name = str(row['os'])
         ip = row['ip']
-
-        query = f"{service} {version}".strip()
+     
+        if pd.isna(version):
+            query = service.strip()
+            version = ""
+        else:
+            query = f"{service} {str(version)}".strip()
+        #query = f"{service} {version}".strip()
         exploit_text = ""
 
         if query:
