@@ -24,5 +24,5 @@ rm -r /toolbox
 git clone https://github.com/SkarrWho/Projet_Toolbox /toolbox
 cd /
 
-python3 /toolbox/workspace/web_app/app.py
+python3 /toolbox/workspace/web_app/app.p
 
